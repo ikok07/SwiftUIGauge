@@ -32,6 +32,10 @@ public struct GaugeView: View {
     public let arrowAnchorSecondaryCircleGradient: LinearGradient = LinearGradient(colors: [.white], startPoint: .leading, endPoint: .trailing)
     public let arrowCornerRadius: CGFloat = 5
     
+    public init(percentage: Binding<Double>) {
+        self._percentage = percentage
+    }
+    
     public var body: some View {
         VStack {
             ZStack() {
