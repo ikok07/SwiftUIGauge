@@ -12,8 +12,10 @@ public struct GaugeView: View {
     
     @Binding public var percentage: Double
     
-    public let backgroundArcGradient: LinearGradient
+    let width: CGFloat
+    let height: CGFloat
     
+    public let backgroundArcGradient: LinearGradient
     public let activeArcGradient: LinearGradient
     
     public let arrowGradient: LinearGradient
@@ -32,7 +34,10 @@ public struct GaugeView: View {
     public let arrowAnchorSecondaryCircleGradient: LinearGradient
     public let arrowCornerRadius: CGFloat
     
-    public init(percentage: Binding<Double>,
+    public init(
+         percentage: Binding<Double>,
+         width: CGFloat = 350,
+         height: CGFloat = 350,
          backgroundArcGradient: LinearGradient = LinearGradient(colors: [.gray], startPoint: .leading, endPoint: .trailing),
          activeArcGradient: LinearGradient = LinearGradient(gradient: Gradient(colors: [.accentColor, .mint]), startPoint: .topLeading, endPoint: .bottomTrailing),
          lineWidth: CGFloat = 25,
@@ -46,9 +51,12 @@ public struct GaugeView: View {
          arrowAnchorMainCircleGradient: LinearGradient = LinearGradient(colors: [.gray], startPoint: .leading, endPoint: .trailing),
          arrowAnchorSecondaryCircleDiameter: CGFloat = 10,
          arrowAnchorSecondaryCircleGradient: LinearGradient = LinearGradient(colors: [.white], startPoint: .leading, endPoint: .trailing),
-         arrowCornerRadius: CGFloat = 5)
+         arrowCornerRadius: CGFloat = 5
+    )
     {
         self._percentage = percentage
+        self.width = width
+        self.height = height
         self.backgroundArcGradient = backgroundArcGradient
         self.activeArcGradient = activeArcGradient
         self.arrowGradient = arrowGradient
@@ -70,22 +78,23 @@ public struct GaugeView: View {
             ZStack() {
 
                 GaugeBackgroundArcShape()
-                    .stroke(backgroundArcGradient, style: StrokeStyle(lineWidth: lineWidth, lineCap: rounded ? .round : .square, lineJoin: rounded ? .round : .miter))
+                    .stroke(self.backgroundArcGradient, style: StrokeStyle(lineWidth: self.lineWidth, lineCap: self.rounded ? .round : .square, lineJoin: self.rounded ? .round : .miter))
                 
                 GaugeActiveArcShape(percentage: self.percentage)
-                    .stroke(activeArcGradient, style: StrokeStyle(lineWidth: lineWidth, lineCap: rounded ? .round : .square, lineJoin: rounded ? .round : .miter))
+                    .stroke(activeArcGradient, style: StrokeStyle(lineWidth: self.lineWidth, lineCap: self.rounded ? .round : .square, lineJoin: self.rounded ? .round : .miter))
+                    .frame(width: self.width, height: self.height)
                     .rotationEffect(.degrees(45))
                     .animation(.bouncy, value: percentage)
                 
 
-                GaugeTicksShape(numberOfMajorTicks: majorTickCount - 1, majorTickLength: majorTickLength)
-                    .stroke(majorTickColor, lineWidth: 3)
-                    .frame(width: 350, height: 350)
+                GaugeTicksShape(numberOfMajorTicks: self.majorTickCount - 1, majorTickLength: self.majorTickLength)
+                    .stroke(self.majorTickColor, lineWidth: 3)
+                    .frame(width: self.width, height: self.height)
                     .rotationEffect(.degrees(-105))
 
                 ZStack {
-                    GaugeArrowShape(anchorDiameter: arrowAnchorMainCircleDiameter, arrowLength: self.arrowLength, cornerRadius: self.arrowCornerRadius)
-                        .fill(arrowGradient)
+                    GaugeArrowShape(anchorDiameter: self.arrowAnchorMainCircleDiameter, arrowLength: self.arrowLength, cornerRadius: self.arrowCornerRadius)
+                        .fill(self.arrowGradient)
                         .rotationEffect(.degrees(-110))
                         .rotationEffect(.degrees(percentage * 220))
                     
