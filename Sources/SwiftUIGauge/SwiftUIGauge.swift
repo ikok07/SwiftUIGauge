@@ -12,28 +12,45 @@ public struct GaugeView: View {
     
     @Binding public var percentage: Double
     
-    public let backgroundArcGradient: LinearGradient = LinearGradient(colors: [.gray], startPoint: .leading, endPoint: .trailing)
+    public let backgroundArcGradient: LinearGradient
     
-    public let activeArcGradient: LinearGradient = LinearGradient(gradient: Gradient(colors: [.accentColor, .mint]), startPoint: .topLeading, endPoint: .bottomTrailing)
+    public let activeArcGradient: LinearGradient
     
-    public let arrowGradient: LinearGradient = LinearGradient(gradient: Gradient(colors: [.accentColor, .mint]), startPoint: .topLeading, endPoint: .bottomTrailing)
+    public let arrowGradient: LinearGradient
     
-    public let lineWidth: CGFloat = 25
-    public let rounded: Bool = true
+    public let lineWidth: CGFloat
+    public let rounded: Bool
     
-    public let majorTickLength: CGFloat = 20
-    public let majorTickCount: Int = 9
-    public let majorTickColor: Color = .gray
+    public let majorTickLength: CGFloat
+    public let majorTickCount: Int
+    public let majorTickColor: Color
     
-    public let arrowLength: CGFloat = 120
-    public let arrowAnchorMainCircleDiameter: CGFloat = 35
-    public let arrowAnchorMainCircleGradient: LinearGradient = LinearGradient(colors: [.gray], startPoint: .leading, endPoint: .trailing)
-    public let arrowAnchorSecondaryCircleDiameter: CGFloat = 10
-    public let arrowAnchorSecondaryCircleGradient: LinearGradient = LinearGradient(colors: [.white], startPoint: .leading, endPoint: .trailing)
-    public let arrowCornerRadius: CGFloat = 5
+    public let arrowLength: CGFloat
+    public let arrowAnchorMainCircleDiameter: CGFloat
+    public let arrowAnchorMainCircleGradient: LinearGradient
+    public let arrowAnchorSecondaryCircleDiameter: CGFloat
+    public let arrowAnchorSecondaryCircleGradient: LinearGradient
+    public let arrowCornerRadius: CGFloat
     
     public init(percentage: Binding<Double>) {
         self._percentage = percentage
+        self.backgroundArcGradient = LinearGradient(colors: [.gray], startPoint: .leading, endPoint: .trailing)
+        self.activeArcGradient = LinearGradient(gradient: Gradient(colors: [.accentColor, .mint]), startPoint: .topLeading, endPoint: .bottomTrailing)
+        
+        self.lineWidth = 25
+        self.rounded = true
+        
+        self.majorTickLength = 20
+        self.majorTickCount = 9
+        self.majorTickColor = .gray
+        
+        self.arrowLength = 120
+        self.arrowGradient = LinearGradient(gradient: Gradient(colors: [.accentColor, .mint]), startPoint: .topLeading, endPoint: .bottomTrailing)
+        self.arrowAnchorMainCircleDiameter = 35
+        self.arrowAnchorMainCircleGradient = LinearGradient(colors: [.gray], startPoint: .leading, endPoint: .trailing)
+        self.arrowAnchorSecondaryCircleDiameter = 10
+        self.arrowAnchorSecondaryCircleGradient = LinearGradient(colors: [.white], startPoint: .leading, endPoint: .trailing)
+        self.arrowCornerRadius = 5
     }
     
     public var body: some View {
