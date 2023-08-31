@@ -10,29 +10,29 @@ import SwiftUI
 @available(iOS 15.0, *)
 struct GaugeView: View {
     
-    @Binding var percentage: Double
+    @Binding public var percentage: Double
     
-    let backgroundArcGradient: LinearGradient = LinearGradient(colors: [.gray], startPoint: .leading, endPoint: .trailing)
+    public let backgroundArcGradient: LinearGradient = LinearGradient(colors: [.gray], startPoint: .leading, endPoint: .trailing)
     
-    let activeArcGradient: LinearGradient = LinearGradient(gradient: Gradient(colors: [.accentColor, .mint]), startPoint: .topLeading, endPoint: .bottomTrailing)
+    public let activeArcGradient: LinearGradient = LinearGradient(gradient: Gradient(colors: [.accentColor, .mint]), startPoint: .topLeading, endPoint: .bottomTrailing)
     
-    let arrowGradient: LinearGradient = LinearGradient(gradient: Gradient(colors: [.accentColor, .mint]), startPoint: .topLeading, endPoint: .bottomTrailing)
+    public let arrowGradient: LinearGradient = LinearGradient(gradient: Gradient(colors: [.accentColor, .mint]), startPoint: .topLeading, endPoint: .bottomTrailing)
     
-    let lineWidth: CGFloat = 25
-    let rounded: Bool = true
+    public let lineWidth: CGFloat = 25
+    public let rounded: Bool = true
     
-    let majorTickLength: CGFloat = 20
-    let majorTickCount: Int = 9
-    let majorTickColor: Color = .gray
+    public let majorTickLength: CGFloat = 20
+    public let majorTickCount: Int = 9
+    public let majorTickColor: Color = .gray
     
-    let arrowLength: CGFloat = 120
-    let arrowAnchorMainCircleDiameter: CGFloat = 35
-    let arrowAnchorMainCircleGradient: LinearGradient = LinearGradient(colors: [.gray], startPoint: .leading, endPoint: .trailing)
-    let arrowAnchorSecondaryCircleDiameter: CGFloat = 10
-    let arrowAnchorSecondaryCircleGradient: LinearGradient = LinearGradient(colors: [.white], startPoint: .leading, endPoint: .trailing)
-    let arrowCornerRadius: CGFloat = 5
+    public let arrowLength: CGFloat = 120
+    public let arrowAnchorMainCircleDiameter: CGFloat = 35
+    public let arrowAnchorMainCircleGradient: LinearGradient = LinearGradient(colors: [.gray], startPoint: .leading, endPoint: .trailing)
+    public let arrowAnchorSecondaryCircleDiameter: CGFloat = 10
+    public let arrowAnchorSecondaryCircleGradient: LinearGradient = LinearGradient(colors: [.white], startPoint: .leading, endPoint: .trailing)
+    public let arrowCornerRadius: CGFloat = 5
     
-    var body: some View {
+    public var body: some View {
         VStack {
             ZStack() {
 
