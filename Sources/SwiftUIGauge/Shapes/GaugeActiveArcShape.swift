@@ -22,7 +22,7 @@ struct GaugeActiveArcShape: Shape {
 
         let center: CGPoint = CGPoint(x: rect.midX, y: rect.midY)
         
-        path.addArc(center: center, radius: rect.width / 2, startAngle: .degrees(100 + percentage * 250), endAngle: .degrees(100), clockwise: true)
+        path.addArc(center: center, radius: rect.width / 2, startAngle: .degrees(101 + percentage * 250), endAngle: .degrees(100), clockwise: true)
         
         return path
     }
