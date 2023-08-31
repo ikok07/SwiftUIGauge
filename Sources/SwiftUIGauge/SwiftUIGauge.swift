@@ -79,6 +79,7 @@ public struct GaugeView: View {
 
                 GaugeBackgroundArcShape()
                     .stroke(self.backgroundArcGradient, style: StrokeStyle(lineWidth: self.lineWidth, lineCap: self.rounded ? .round : .square, lineJoin: self.rounded ? .round : .miter))
+                    .frame(width: self.width, height: self.height)
                 
                 GaugeActiveArcShape(percentage: self.percentage)
                     .stroke(activeArcGradient, style: StrokeStyle(lineWidth: self.lineWidth, lineCap: self.rounded ? .round : .square, lineJoin: self.rounded ? .round : .miter))
