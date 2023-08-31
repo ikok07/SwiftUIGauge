@@ -32,7 +32,7 @@ public struct GaugeView: View {
     public let arrowAnchorSecondaryCircleGradient: LinearGradient
     public let arrowCornerRadius: CGFloat
     
-    init(percentage: Binding<Double>,
+    public init(percentage: Binding<Double>,
          backgroundArcGradient: LinearGradient = LinearGradient(colors: [.gray], startPoint: .leading, endPoint: .trailing),
          activeArcGradient: LinearGradient = LinearGradient(gradient: Gradient(colors: [.accentColor, .mint]), startPoint: .topLeading, endPoint: .bottomTrailing),
          lineWidth: CGFloat = 25,
