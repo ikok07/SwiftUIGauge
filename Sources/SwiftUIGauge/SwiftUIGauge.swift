@@ -8,7 +8,7 @@
 import SwiftUI
 
 @available(iOS 15.0, *)
-struct GaugeView: View {
+public struct GaugeView: View {
     
     @Binding public var percentage: Double
     
