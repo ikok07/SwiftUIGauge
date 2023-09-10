@@ -15,6 +15,12 @@ public struct GaugeArrowShape: Shape {
     public let arrowLength: CGFloat
     public let cornerRadius: CGFloat // Adjust this value to control the roundness
     
+    public init(anchorDiameter: Double, arrowLength: CGFloat, cornerRadius: CGFloat) {
+        self.anchorDiameter = anchorDiameter
+        self.arrowLength = arrowLength
+        self.cornerRadius = cornerRadius
+    }
+    
     
     public func path(in rect: CGRect) -> Path {
         var path = Path()

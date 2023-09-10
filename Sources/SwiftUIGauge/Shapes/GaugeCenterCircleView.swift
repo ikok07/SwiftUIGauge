@@ -16,6 +16,13 @@ public struct GaugeCenterCircleView: View {
     public let arrowAnchorMainCircleGradient: LinearGradient
     public let arrowAnchorSecondaryCircleGradient: LinearGradient
     
+    public init(arrowAnchorMainCircleDiameter: CGFloat, arrowAnchorSecondaryCircleDiameter: CGFloat, arrowAnchorMainCircleGradient: LinearGradient, arrowAnchorSecondaryCircleGradient: LinearGradient) {
+        self.arrowAnchorMainCircleDiameter = arrowAnchorMainCircleDiameter
+        self.arrowAnchorSecondaryCircleDiameter = arrowAnchorSecondaryCircleDiameter
+        self.arrowAnchorMainCircleGradient = arrowAnchorMainCircleGradient
+        self.arrowAnchorSecondaryCircleGradient = arrowAnchorSecondaryCircleGradient
+    }
+    
     public var body: some View {
         ZStack {
             Circle()
