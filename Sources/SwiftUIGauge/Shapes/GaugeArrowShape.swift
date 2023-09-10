@@ -8,15 +8,15 @@
 import SwiftUI
 
 @available(iOS 15.0, *)
-struct GaugeArrowShape: Shape {
+public struct GaugeArrowShape: Shape {
     
-    let anchorDiameter: Double
+    public let anchorDiameter: Double
     
-    let arrowLength: CGFloat
-    let cornerRadius: CGFloat // Adjust this value to control the roundness
+    public let arrowLength: CGFloat
+    public let cornerRadius: CGFloat // Adjust this value to control the roundness
     
     
-    func path(in rect: CGRect) -> Path {
+    public func path(in rect: CGRect) -> Path {
         var path = Path()
         
         path.move(to: CGPoint(x: rect.midX - anchorDiameter / 2, y: rect.midY))

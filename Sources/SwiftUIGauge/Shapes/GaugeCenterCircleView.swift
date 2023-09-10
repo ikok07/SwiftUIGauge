@@ -8,15 +8,15 @@
 import SwiftUI
 
 @available(iOS 15.0, *)
-struct GaugeCenterCircleView: View {
+public struct GaugeCenterCircleView: View {
     
-    let arrowAnchorMainCircleDiameter: CGFloat
-    let arrowAnchorSecondaryCircleDiameter: CGFloat
+    public let arrowAnchorMainCircleDiameter: CGFloat
+    public let arrowAnchorSecondaryCircleDiameter: CGFloat
     
-    let arrowAnchorMainCircleGradient: LinearGradient
-    let arrowAnchorSecondaryCircleGradient: LinearGradient
+    public let arrowAnchorMainCircleGradient: LinearGradient
+    public let arrowAnchorSecondaryCircleGradient: LinearGradient
     
-    var body: some View {
+    public var body: some View {
         ZStack {
             Circle()
                 .foregroundStyle(arrowAnchorMainCircleGradient)
